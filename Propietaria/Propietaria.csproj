@@ -135,6 +135,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
+    <Compile Include="Controllers\ReclaimsAndComplaintsStatusController.cs" />
     <Compile Include="Controllers\ReclaimTypesController.cs" />
     <Compile Include="Controllers\UserStatusController.cs" />
     <Compile Include="Filters\CheckSession.cs" />
@@ -294,6 +295,11 @@
     <Content Include="Views\UserStatus\Details.cshtml" />
     <Content Include="Views\UserStatus\Edit.cshtml" />
     <Content Include="Views\UserStatus\Index.cshtml" />
+    <Content Include="Views\ReclaimsAndComplaintsStatus\Create.cshtml" />
+    <Content Include="Views\ReclaimsAndComplaintsStatus\Delete.cshtml" />
+    <Content Include="Views\ReclaimsAndComplaintsStatus\Details.cshtml" />
+    <Content Include="Views\ReclaimsAndComplaintsStatus\Edit.cshtml" />
+    <Content Include="Views\ReclaimsAndComplaintsStatus\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
