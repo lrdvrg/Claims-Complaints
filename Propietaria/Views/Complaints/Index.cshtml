@@ -42,40 +42,41 @@
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.CreationDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Comment)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Users.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ComplaintType.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Department.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Product.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Department1.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ReclaimsAndComplaintsStatus.description)
-        </td>
-        <td>
-            @Html.ActionLink("Editar", "Edit", new { id=item.IdComplaint }) |
-            @Html.ActionLink("Ver", "Details", new { id=item.IdComplaint }) |
-            @Html.ActionLink("Eliminar", "Delete", new { id=item.IdComplaint })
-        </td>
-    </tr>
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Users.Name)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.CreationDate)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Description)
+    </td>
+
+    <td>
+        @Html.DisplayFor(modelItem => item.Department.Name)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Department1.Name)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Product.Name)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ComplaintType.Name)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Comment)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ReclaimsAndComplaintsStatus.description)
+    </td>
+    <td>
+        @Html.ActionLink("Editar", "Edit", new { id = item.IdComplaint }) |
+        @Html.ActionLink("Ver", "Details", new { id = item.IdComplaint }) |
+        @Html.ActionLink("Eliminar", "Delete", new { id = item.IdComplaint })
+    </td>
+</tr>
 }
 
 </table>

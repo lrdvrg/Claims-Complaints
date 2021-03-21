@@ -4,38 +4,14 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>Ver</h2>
 
 <div>
-    <h4>Complaint</h4>
+    <h4>Queja</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.CreationDate)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CreationDate)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Comment)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Comment)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Users.Name)
+            Cliente
         </dt>
 
         <dd>
@@ -43,15 +19,23 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.ComplaintType.Name)
+            Fecha de Creación
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.ComplaintType.Name)
+            @Html.DisplayFor(model => model.CreationDate)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Department.Name)
+            Queja
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            Departamento de Origen
         </dt>
 
         <dd>
@@ -59,15 +43,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Product.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Product.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Department1.Name)
+            Departamento Responsable
         </dt>
 
         <dd>
@@ -75,7 +51,31 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.ReclaimsAndComplaintsStatus.description)
+            Producto
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Product.Name)
+        </dd>
+
+        <dt>
+            Tipo de Queja
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ComplaintType.Name)
+        </dd>
+
+        <dt>
+            Respuesta
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Comment)
+        </dd>
+
+        <dt>
+            Estado
         </dt>
 
         <dd>
@@ -85,6 +85,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.IdComplaint }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Editar", "Edit", new { id = Model.IdComplaint }) |
+    @Html.ActionLink("Ir atras", "Index")
 </p>
