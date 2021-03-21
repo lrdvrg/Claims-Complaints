@@ -14,6 +14,12 @@ namespace Propietaria.Controllers
             return View();
         }
 
+        public ActionResult Logoff()
+        {
+            Session["User"] = null;
+            return RedirectToAction("Login", "Login");
+        }
+
         [HttpPost]
         public ActionResult Login(string email, string password)
         {

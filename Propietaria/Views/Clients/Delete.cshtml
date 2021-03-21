@@ -1,0 +1,151 @@
+﻿@model Propietaria.Models.Users
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Eliminar</h2>
+<div>
+    <h4>Cliente</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Nombre
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            Contraseña
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Password)
+        </dd>
+
+        <dt>
+            Telefono
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Phone)
+        </dd>
+
+        <dt>
+            Fecha de Registro
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Provincia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Provincia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sector)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sector)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Municipio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Municipio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Barrio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Barrio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Direccion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Direccion)
+        </dd>
+
+        <dt>
+            Dirección #2
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Direccion2)
+        </dd>
+
+        <dt>
+            Tipo de Documento
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdentificationType.Name)
+        </dd>
+
+        <dt>
+            Documento
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdentificationNumber)
+        </dd>
+
+        <dt>
+            País
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Country.Description)
+        </dd>
+
+        <dt>
+            Rol
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Role.Description)
+        </dd>
+
+        <dt>
+            Estatus
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserStatus.Description)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-default" /> |
+            @Html.ActionLink("Ir atras", "Index")
+        </div>
+    }
+</div>

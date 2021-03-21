@@ -1,4 +1,5 @@
-﻿using Propietaria.Models;
+﻿using Propietaria.Controllers;
+using Propietaria.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,15 @@ namespace Propietaria.Filters
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
             base.OnActionExecuting(filterContext);
+
+            oUser = (Users)HttpContext.Current.Session["User"];
+            if (oUser == null)
+            {
+                if (filterContext.Controller is LoginController == false)
+                {
+                    filterContext.HttpContext.Response.Redirect("/Login/Login");
+                }
+            }
         }
     }
 }
