@@ -1,0 +1,90 @@
+﻿@model Propietaria.Models.Reclaim
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Ver</h2>
+
+<div>
+    <h4>Reclamo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Cliente
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Users.Name)
+        </dd>
+
+        <dt>
+            Fecha de Creación
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreationDate)
+        </dd>
+
+        <dt>
+            Reclamo
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            Departamento de Origen
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Department.Name)
+        </dd>
+
+        <dt>
+            Departamento Responsable
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Department1.Name)
+        </dd>
+
+        <dt>
+            Producto
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Product.Name)
+        </dd>
+
+        <dt>
+            Tipo de Reclamo
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReclaimType.Name)
+        </dd>
+
+        <dt>
+            Respuesta
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Comment)
+        </dd>
+
+        <dt>
+            Estado
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReclaimsAndComplaintsStatus.description)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.IdReclaim }) |
+    @Html.ActionLink("Ir atras", "Index")
+</p>

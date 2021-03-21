@@ -4,15 +4,15 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Estados de Quejas y Reclamos</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Agregar", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.description)
+            Nombre
         </th>
         <th></th>
     </tr>
@@ -23,9 +23,9 @@
             @Html.DisplayFor(modelItem => item.description)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.IdReclaimsAndComplaintsStatus }) |
-            @Html.ActionLink("Details", "Details", new { id=item.IdReclaimsAndComplaintsStatus }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.IdReclaimsAndComplaintsStatus })
+            @Html.ActionLink("Editar", "Edit", new { id=item.IdReclaimsAndComplaintsStatus }) |
+            @Html.ActionLink("Ver", "Details", new { id=item.IdReclaimsAndComplaintsStatus }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.IdReclaimsAndComplaintsStatus })
         </td>
     </tr>
 }

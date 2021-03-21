@@ -4,14 +4,14 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>Ver</h2>
 
 <div>
-    <h4>ReclaimsAndComplaintsStatus</h4>
+    <h4>Estado de Quejas y Reclamos</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.description)
+            Nombre
         </dt>
 
         <dd>
@@ -21,6 +21,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.IdReclaimsAndComplaintsStatus }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Editar", "Edit", new { id = Model.IdReclaimsAndComplaintsStatus }) |
+    @Html.ActionLink("Ir atras", "Index")
 </p>

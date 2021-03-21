@@ -129,6 +129,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ClientsController.cs" />
+    <Compile Include="Controllers\ComplaintsController.cs" />
     <Compile Include="Controllers\ComplaintTypesController.cs" />
     <Compile Include="Controllers\DepartmentsController.cs" />
     <Compile Include="Controllers\EmployeesController.cs" />
@@ -136,6 +137,7 @@
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\ReclaimsAndComplaintsStatusController.cs" />
+    <Compile Include="Controllers\ReclaimsController.cs" />
     <Compile Include="Controllers\ReclaimTypesController.cs" />
     <Compile Include="Controllers\UserStatusController.cs" />
     <Compile Include="Filters\CheckSession.cs" />
@@ -300,6 +302,16 @@
     <Content Include="Views\ReclaimsAndComplaintsStatus\Details.cshtml" />
     <Content Include="Views\ReclaimsAndComplaintsStatus\Edit.cshtml" />
     <Content Include="Views\ReclaimsAndComplaintsStatus\Index.cshtml" />
+    <Content Include="Views\Reclaims\Create.cshtml" />
+    <Content Include="Views\Reclaims\Delete.cshtml" />
+    <Content Include="Views\Reclaims\Details.cshtml" />
+    <Content Include="Views\Reclaims\Edit.cshtml" />
+    <Content Include="Views\Reclaims\Index.cshtml" />
+    <Content Include="Views\Complaints\Create.cshtml" />
+    <Content Include="Views\Complaints\Delete.cshtml" />
+    <Content Include="Views\Complaints\Details.cshtml" />
+    <Content Include="Views\Complaints\Edit.cshtml" />
+    <Content Include="Views\Complaints\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
