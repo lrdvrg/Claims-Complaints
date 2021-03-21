@@ -106,7 +106,7 @@ namespace Propietaria.Controllers
             {
                 db.Entry(reclaim).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("../Reclaims/Index");
             }
             ViewBag.IdOriginDepartment = new SelectList(db.Department, "IdDepartment", "Name", reclaim.IdOriginDepartment);
             ViewBag.IdResponsibleDepartment = new SelectList(db.Department, "IdDepartment", "Name", reclaim.IdResponsibleDepartment);

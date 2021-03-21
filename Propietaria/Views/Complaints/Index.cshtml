@@ -87,6 +87,7 @@
                     <td>
                         @Html.ActionLink("Editar", "Edit", new { id = item.IdComplaint }) |
                         @Html.ActionLink("Ver", "Details", new { id = item.IdComplaint }) |
+                        @Html.ActionLink("Responder", "Edit", "ComplaintsResponses", new { id = item.IdComplaint }, null) |
                         @Html.ActionLink("Eliminar", "Delete", new { id = item.IdComplaint })
                     </td>
                 }

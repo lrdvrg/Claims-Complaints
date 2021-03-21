@@ -130,6 +130,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ClientsController.cs" />
     <Compile Include="Controllers\ComplaintsController.cs" />
+    <Compile Include="Controllers\ComplaintsResponsesController.cs" />
     <Compile Include="Controllers\ComplaintTypesController.cs" />
     <Compile Include="Controllers\DepartmentsController.cs" />
     <Compile Include="Controllers\EmployeesController.cs" />
@@ -318,6 +319,11 @@
     <Content Include="Views\ReclaimsResponses\Details.cshtml" />
     <Content Include="Views\ReclaimsResponses\Edit.cshtml" />
     <Content Include="Views\ReclaimsResponses\Index.cshtml" />
+    <Content Include="Views\ComplaintsResponses\Create.cshtml" />
+    <Content Include="Views\ComplaintsResponses\Delete.cshtml" />
+    <Content Include="Views\ComplaintsResponses\Details.cshtml" />
+    <Content Include="Views\ComplaintsResponses\Edit.cshtml" />
+    <Content Include="Views\ComplaintsResponses\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
