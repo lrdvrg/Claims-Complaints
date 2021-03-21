@@ -45,13 +45,16 @@
         <!-- Sidebar -->
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
-                <li class="sidebar-brand">
-                    <a href="#">
-                        Quejas y Reclamos
-                    </a>
+                <li class="sidebar-brand font-weight-bold font-italic">
+                    @Html.ActionLink("Quejas y Reclamos", "Index", "Home")
                 </li>
-                <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
+                <li></li>
                 <li>@Html.ActionLink("Clientes", "Index", "Clients")</li>
+                <li>@Html.ActionLink("Empleados", "Index", "Employees")</li>
+                <li>@Html.ActionLink("Departamentos", "Index", "Departments")</li>
+                <li>@Html.ActionLink("Productos", "Index", "Products")</li>
+                <li>@Html.ActionLink("Tipos de Queja", "Index", "ComplaintTypes")</li>
+                <li>@Html.ActionLink("Tipos de Reclamo", "Index", "ReclaimTypes")</li>
                 <li>@Html.ActionLink("Cerrar Sesión", "Logoff", "Login")</li>
             </ul>
         </div>

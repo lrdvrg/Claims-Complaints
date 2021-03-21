@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Propietaria.Models.ReclaimType>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Tipos de Reclamo</h2>
+
+<p>
+    @Html.ActionLink("Agregar", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Nombre
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.IdReclaimType }) |
+            @Html.ActionLink("Ver", "Details", new { id=item.IdReclaimType }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.IdReclaimType })
+        </td>
+    </tr>
+}
+
+</table>

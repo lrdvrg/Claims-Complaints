@@ -1,0 +1,26 @@
+﻿@model Propietaria.Models.ReclaimType
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Ver</h2>
+
+<div>
+    <h4>Tipo de Reclamo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Nombre
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.IdReclaimType }) |
+    @Html.ActionLink("Ir atras", "Index")
+</p>
