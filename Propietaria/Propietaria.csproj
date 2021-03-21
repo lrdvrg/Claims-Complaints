@@ -138,6 +138,7 @@
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\ReclaimsAndComplaintsStatusController.cs" />
     <Compile Include="Controllers\ReclaimsController.cs" />
+    <Compile Include="Controllers\ReclaimsResponsesController.cs" />
     <Compile Include="Controllers\ReclaimTypesController.cs" />
     <Compile Include="Controllers\UserStatusController.cs" />
     <Compile Include="Filters\CheckSession.cs" />
@@ -312,6 +313,11 @@
     <Content Include="Views\Complaints\Details.cshtml" />
     <Content Include="Views\Complaints\Edit.cshtml" />
     <Content Include="Views\Complaints\Index.cshtml" />
+    <Content Include="Views\ReclaimsResponses\Create.cshtml" />
+    <Content Include="Views\ReclaimsResponses\Delete.cshtml" />
+    <Content Include="Views\ReclaimsResponses\Details.cshtml" />
+    <Content Include="Views\ReclaimsResponses\Edit.cshtml" />
+    <Content Include="Views\ReclaimsResponses\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

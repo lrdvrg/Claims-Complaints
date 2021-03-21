@@ -1,14 +1,21 @@
 ﻿@model IEnumerable<Propietaria.Models.Reclaim>
+    @{ Propietaria.Models.Users user = (Propietaria.Models.Users)Session["User"]; }
+@{ Propietaria.Models.ReclaimsAndComplaints2Entities db = new Propietaria.Models.ReclaimsAndComplaints2Entities(); }
 
 @{
     ViewBag.Title = "Index";
 }
 
 <h2>Reclamos</h2>
-
-<p>
-    @Html.ActionLink("Agregar", "Create")
-</p>
+@if (@user != null)
+{
+    if (user.IdRole == (from e in db.Role where e.Description == "Empleado" select e.IdRole).First())
+    {
+        <p>
+            @Html.ActionLink("Agregar", "Create")
+        </p>
+    }
+}
 <table class="table">
     <tr>
         <th>
@@ -41,7 +48,8 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+    @foreach (var item in Model)
+    {
 <tr>
     <td>
         @Html.DisplayFor(modelItem => item.Users.Name)
@@ -71,12 +79,19 @@
     <td>
         @Html.DisplayFor(modelItem => item.ReclaimsAndComplaintsStatus.description)
     </td>
-    <td>
-        @Html.ActionLink("Editar", "Edit", new { id = item.IdReclaim }) |
-        @Html.ActionLink("Ver", "Details", new { id = item.IdReclaim }) |
-        @Html.ActionLink("Eliminar", "Delete", new { id = item.IdReclaim })
-    </td>
-</tr>
-}
+    @if (@user != null)
+    {
+        if (user.IdRole == (from e in db.Role where e.Description == "Empleado" select e.IdRole).First())
+        {
+<td>
+    @Html.ActionLink("Editar", "Edit", new { id = item.IdReclaim }) |
+    @Html.ActionLink("Ver", "Details", new { id = item.IdReclaim }) |
+    @Html.ActionLink("Responder", "Edit", "ReclaimsResponses", new { id = item.IdReclaim }, null) |
+    @Html.ActionLink("Eliminar", "Delete", new { id = item.IdReclaim })
+</td>
+        }
+    }
+        </tr>
+    }
 
 </table>

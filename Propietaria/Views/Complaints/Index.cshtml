@@ -1,4 +1,6 @@
 ﻿@model IEnumerable<Propietaria.Models.Complaint>
+@{ Propietaria.Models.Users user = (Propietaria.Models.Users)Session["User"]; }
+@{ Propietaria.Models.ReclaimsAndComplaints2Entities db = new Propietaria.Models.ReclaimsAndComplaints2Entities(); }
 
 @{
     ViewBag.Title = "Index";
@@ -6,9 +8,15 @@
 
 <h2>Quejas</h2>
 
-<p>
-    @Html.ActionLink("Agregar", "Create")
-</p>
+@if (@user != null)
+{
+    if (user.IdRole == (from e in db.Role where e.Description == "Empleado" select e.IdRole).First())
+    {
+        <p>
+            @Html.ActionLink("Agregar", "Create")
+        </p>
+    }
+}
 <table class="table">
     <tr>
         <th>
@@ -41,42 +49,49 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-<tr>
-    <td>
-        @Html.DisplayFor(modelItem => item.Users.Name)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.CreationDate)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Description)
-    </td>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Users.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreationDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
 
-    <td>
-        @Html.DisplayFor(modelItem => item.Department.Name)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Department1.Name)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Product.Name)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.ComplaintType.Name)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Comment)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.ReclaimsAndComplaintsStatus.description)
-    </td>
-    <td>
-        @Html.ActionLink("Editar", "Edit", new { id = item.IdComplaint }) |
-        @Html.ActionLink("Ver", "Details", new { id = item.IdComplaint }) |
-        @Html.ActionLink("Eliminar", "Delete", new { id = item.IdComplaint })
-    </td>
-</tr>
-}
+            <td>
+                @Html.DisplayFor(modelItem => item.Department.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Department1.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Product.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ComplaintType.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Comment)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReclaimsAndComplaintsStatus.description)
+            </td>
+            @if (@user != null)
+            {
+                if (user.IdRole == (from e in db.Role where e.Description == "Empleado" select e.IdRole).First())
+                {
+                    <td>
+                        @Html.ActionLink("Editar", "Edit", new { id = item.IdComplaint }) |
+                        @Html.ActionLink("Ver", "Details", new { id = item.IdComplaint }) |
+                        @Html.ActionLink("Eliminar", "Delete", new { id = item.IdComplaint })
+                    </td>
+                }
+            }
+        </tr>
+    }
 
 </table>

@@ -17,8 +17,20 @@ namespace Propietaria.Controllers
         // GET: Complaints
         public ActionResult Index()
         {
-            var complaint = db.Complaint.Include(c => c.Users).Include(c => c.ComplaintType).Include(c => c.Department).Include(c => c.Product).Include(c => c.Department1).Include(c => c.ReclaimsAndComplaintsStatus);
-            return View(complaint.ToList());
+            var oUser = (Users)Session["User"];
+
+            if ((oUser.IdRole == (from e in db.Role where e.Description == "Cliente" select e.IdRole).First()))
+            {
+                var complaint = db.Complaint.Where(s => s.IdClient == oUser.IdUser).Include(c => c.Users).Include(c => c.ComplaintType).Include(c => c.Department).Include(c => c.Product).Include(c => c.Department1).Include(c => c.ReclaimsAndComplaintsStatus);
+                return View(complaint.ToList());
+
+            }
+            else
+            {
+                var complaint = db.Complaint.Include(c => c.Users).Include(c => c.ComplaintType).Include(c => c.Department).Include(c => c.Product).Include(c => c.Department1).Include(c => c.ReclaimsAndComplaintsStatus);
+                return View(complaint.ToList());
+
+            }
         }
 
         // GET: Complaints/Details/5
