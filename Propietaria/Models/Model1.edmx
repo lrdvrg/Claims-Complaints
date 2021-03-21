@@ -1,0 +1,1154 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ReclaimsAndComplaints2Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Complaint">
+          <Key>
+            <PropertyRef Name="IdComplaint" />
+          </Key>
+          <Property Name="IdComplaint" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdClient" Type="int" />
+          <Property Name="IdProduct" Type="int" />
+          <Property Name="IdComplaintType" Type="int" />
+          <Property Name="IdOriginDepartment" Type="int" />
+          <Property Name="IdResponsibleDepartment" Type="int" />
+          <Property Name="IdStatus" Type="int" />
+          <Property Name="CreationDate" Type="date" />
+          <Property Name="Description" Type="varchar" MaxLength="300" />
+          <Property Name="Comment" Type="varchar" MaxLength="300" />
+        </EntityType>
+        <EntityType Name="ComplaintType">
+          <Key>
+            <PropertyRef Name="IdComplaintType" />
+          </Key>
+          <Property Name="IdComplaintType" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="60" />
+        </EntityType>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="IdCountry" />
+          </Key>
+          <Property Name="IdCountry" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Department">
+          <Key>
+            <PropertyRef Name="IdDepartment" />
+          </Key>
+          <Property Name="IdDepartment" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="60" />
+        </EntityType>
+        <EntityType Name="IdentificationType">
+          <Key>
+            <PropertyRef Name="IdIdentificationType" />
+          </Key>
+          <Property Name="IdIdentificationType" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="60" />
+        </EntityType>
+        <EntityType Name="Module">
+          <Key>
+            <PropertyRef Name="IdModule" />
+          </Key>
+          <Property Name="IdModule" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="60" />
+        </EntityType>
+        <EntityType Name="Operation">
+          <Key>
+            <PropertyRef Name="IdOperation" />
+          </Key>
+          <Property Name="IdOperation" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="60" />
+          <Property Name="IdModule" Type="int" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="IdProduct" />
+          </Key>
+          <Property Name="IdProduct" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="60" />
+          <Property Name="Price" Type="int" />
+        </EntityType>
+        <EntityType Name="Reclaim">
+          <Key>
+            <PropertyRef Name="IdReclaim" />
+          </Key>
+          <Property Name="IdReclaim" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdClient" Type="int" />
+          <Property Name="IdProduct" Type="int" />
+          <Property Name="IdReclaimType" Type="int" />
+          <Property Name="IdOriginDepartment" Type="int" />
+          <Property Name="IdResponsibleDepartment" Type="int" />
+          <Property Name="IdStatus" Type="int" />
+          <Property Name="CreationDate" Type="date" />
+          <Property Name="Description" Type="varchar" MaxLength="300" />
+          <Property Name="Comment" Type="varchar" MaxLength="300" />
+        </EntityType>
+        <EntityType Name="ReclaimsAndComplaintsStatus">
+          <Key>
+            <PropertyRef Name="IdReclaimsAndComplaintsStatus" />
+          </Key>
+          <Property Name="IdReclaimsAndComplaintsStatus" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="description" Type="varchar" MaxLength="300" />
+        </EntityType>
+        <EntityType Name="ReclaimType">
+          <Key>
+            <PropertyRef Name="IdReclaimType" />
+          </Key>
+          <Property Name="IdReclaimType" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="60" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="IdRole" />
+          </Key>
+          <Property Name="IdRole" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="60" />
+        </EntityType>
+        <EntityType Name="RoleOperation">
+          <Key>
+            <PropertyRef Name="IdRoleOperation" />
+          </Key>
+          <Property Name="IdRoleOperation" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdRole" Type="int" />
+          <Property Name="IdOperation" Type="int" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="IdUser" />
+          </Key>
+          <Property Name="IdUser" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="60" />
+          <Property Name="Email" Type="varchar" MaxLength="20" />
+          <Property Name="Password" Type="varchar" MaxLength="20" />
+          <Property Name="Phone" Type="varchar" MaxLength="13" />
+          <Property Name="Date" Type="date" />
+          <Property Name="Provincia" Type="varchar" MaxLength="60" />
+          <Property Name="Sector" Type="varchar" MaxLength="60" />
+          <Property Name="Municipio" Type="varchar" MaxLength="60" />
+          <Property Name="Barrio" Type="varchar" MaxLength="60" />
+          <Property Name="Direccion" Type="varchar" MaxLength="60" />
+          <Property Name="Direccion2" Type="varchar" MaxLength="60" />
+          <Property Name="IdIdentificationType" Type="int" />
+          <Property Name="IdentificationNumber" Type="varchar" MaxLength="60" />
+          <Property Name="IdRole" Type="int" />
+          <Property Name="IdUserStatus" Type="int" />
+          <Property Name="IdCountry" Type="int" />
+        </EntityType>
+        <EntityType Name="UserStatus">
+          <Key>
+            <PropertyRef Name="IdUserStatus" />
+          </Key>
+          <Property Name="IdUserStatus" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <Association Name="FK__Complaint__IdCli__60A75C0F">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="Complaint" Type="Self.Complaint" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="IdUser" />
+            </Principal>
+            <Dependent Role="Complaint">
+              <PropertyRef Name="IdClient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Complaint__IdCom__628FA481">
+          <End Role="ComplaintType" Type="Self.ComplaintType" Multiplicity="0..1" />
+          <End Role="Complaint" Type="Self.Complaint" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ComplaintType">
+              <PropertyRef Name="IdComplaintType" />
+            </Principal>
+            <Dependent Role="Complaint">
+              <PropertyRef Name="IdComplaintType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Complaint__IdOri__6383C8BA">
+          <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
+          <End Role="Complaint" Type="Self.Complaint" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department">
+              <PropertyRef Name="IdDepartment" />
+            </Principal>
+            <Dependent Role="Complaint">
+              <PropertyRef Name="IdOriginDepartment" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Complaint__IdPro__619B8048">
+          <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+          <End Role="Complaint" Type="Self.Complaint" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="IdProduct" />
+            </Principal>
+            <Dependent Role="Complaint">
+              <PropertyRef Name="IdProduct" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Complaint__IdRes__6477ECF3">
+          <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
+          <End Role="Complaint" Type="Self.Complaint" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department">
+              <PropertyRef Name="IdDepartment" />
+            </Principal>
+            <Dependent Role="Complaint">
+              <PropertyRef Name="IdResponsibleDepartment" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Complaint__IdSta__656C112C">
+          <End Role="ReclaimsAndComplaintsStatus" Type="Self.ReclaimsAndComplaintsStatus" Multiplicity="0..1" />
+          <End Role="Complaint" Type="Self.Complaint" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ReclaimsAndComplaintsStatus">
+              <PropertyRef Name="IdReclaimsAndComplaintsStatus" />
+            </Principal>
+            <Dependent Role="Complaint">
+              <PropertyRef Name="IdStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Operation__IdMod__3C69FB99">
+          <End Role="Module" Type="Self.Module" Multiplicity="0..1" />
+          <End Role="Operation" Type="Self.Operation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Module">
+              <PropertyRef Name="IdModule" />
+            </Principal>
+            <Dependent Role="Operation">
+              <PropertyRef Name="IdModule" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Reclaim__IdClien__59063A47">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="Reclaim" Type="Self.Reclaim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="IdUser" />
+            </Principal>
+            <Dependent Role="Reclaim">
+              <PropertyRef Name="IdClient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Reclaim__IdOrigi__5BE2A6F2">
+          <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
+          <End Role="Reclaim" Type="Self.Reclaim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department">
+              <PropertyRef Name="IdDepartment" />
+            </Principal>
+            <Dependent Role="Reclaim">
+              <PropertyRef Name="IdOriginDepartment" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Reclaim__IdProdu__59FA5E80">
+          <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+          <End Role="Reclaim" Type="Self.Reclaim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="IdProduct" />
+            </Principal>
+            <Dependent Role="Reclaim">
+              <PropertyRef Name="IdProduct" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Reclaim__IdRecla__5AEE82B9">
+          <End Role="ReclaimType" Type="Self.ReclaimType" Multiplicity="0..1" />
+          <End Role="Reclaim" Type="Self.Reclaim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ReclaimType">
+              <PropertyRef Name="IdReclaimType" />
+            </Principal>
+            <Dependent Role="Reclaim">
+              <PropertyRef Name="IdReclaimType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Reclaim__IdRespo__5CD6CB2B">
+          <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
+          <End Role="Reclaim" Type="Self.Reclaim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department">
+              <PropertyRef Name="IdDepartment" />
+            </Principal>
+            <Dependent Role="Reclaim">
+              <PropertyRef Name="IdResponsibleDepartment" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Reclaim__IdStatu__5DCAEF64">
+          <End Role="ReclaimsAndComplaintsStatus" Type="Self.ReclaimsAndComplaintsStatus" Multiplicity="0..1" />
+          <End Role="Reclaim" Type="Self.Reclaim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ReclaimsAndComplaintsStatus">
+              <PropertyRef Name="IdReclaimsAndComplaintsStatus" />
+            </Principal>
+            <Dependent Role="Reclaim">
+              <PropertyRef Name="IdStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RoleOpera__IdOpe__4222D4EF">
+          <End Role="Operation" Type="Self.Operation" Multiplicity="0..1" />
+          <End Role="RoleOperation" Type="Self.RoleOperation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Operation">
+              <PropertyRef Name="IdOperation" />
+            </Principal>
+            <Dependent Role="RoleOperation">
+              <PropertyRef Name="IdOperation" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RoleOpera__IdRol__412EB0B6">
+          <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
+          <End Role="RoleOperation" Type="Self.RoleOperation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="IdRole" />
+            </Principal>
+            <Dependent Role="RoleOperation">
+              <PropertyRef Name="IdRole" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Users__IdCountry__4CA06362">
+          <End Role="Country" Type="Self.Country" Multiplicity="0..1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="IdCountry" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="IdCountry" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Users__IdIdentif__49C3F6B7">
+          <End Role="IdentificationType" Type="Self.IdentificationType" Multiplicity="0..1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IdentificationType">
+              <PropertyRef Name="IdIdentificationType" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="IdIdentificationType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Users__IdRole__4AB81AF0">
+          <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="IdRole" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="IdRole" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Users__IdUserSta__4BAC3F29">
+          <End Role="UserStatus" Type="Self.UserStatus" Multiplicity="0..1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserStatus">
+              <PropertyRef Name="IdUserStatus" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="IdUserStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ReclaimsAndComplaints2ModelStoreContainer">
+          <EntitySet Name="Complaint" EntityType="Self.Complaint" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ComplaintType" EntityType="Self.ComplaintType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Country" EntityType="Self.Country" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Department" EntityType="Self.Department" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="IdentificationType" EntityType="Self.IdentificationType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Module" EntityType="Self.Module" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Operation" EntityType="Self.Operation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Reclaim" EntityType="Self.Reclaim" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ReclaimsAndComplaintsStatus" EntityType="Self.ReclaimsAndComplaintsStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ReclaimType" EntityType="Self.ReclaimType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RoleOperation" EntityType="Self.RoleOperation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserStatus" EntityType="Self.UserStatus" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Complaint__IdCli__60A75C0F" Association="Self.FK__Complaint__IdCli__60A75C0F">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Complaint" EntitySet="Complaint" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Complaint__IdCom__628FA481" Association="Self.FK__Complaint__IdCom__628FA481">
+            <End Role="ComplaintType" EntitySet="ComplaintType" />
+            <End Role="Complaint" EntitySet="Complaint" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Complaint__IdOri__6383C8BA" Association="Self.FK__Complaint__IdOri__6383C8BA">
+            <End Role="Department" EntitySet="Department" />
+            <End Role="Complaint" EntitySet="Complaint" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Complaint__IdPro__619B8048" Association="Self.FK__Complaint__IdPro__619B8048">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="Complaint" EntitySet="Complaint" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Complaint__IdRes__6477ECF3" Association="Self.FK__Complaint__IdRes__6477ECF3">
+            <End Role="Department" EntitySet="Department" />
+            <End Role="Complaint" EntitySet="Complaint" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Complaint__IdSta__656C112C" Association="Self.FK__Complaint__IdSta__656C112C">
+            <End Role="ReclaimsAndComplaintsStatus" EntitySet="ReclaimsAndComplaintsStatus" />
+            <End Role="Complaint" EntitySet="Complaint" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Operation__IdMod__3C69FB99" Association="Self.FK__Operation__IdMod__3C69FB99">
+            <End Role="Module" EntitySet="Module" />
+            <End Role="Operation" EntitySet="Operation" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Reclaim__IdClien__59063A47" Association="Self.FK__Reclaim__IdClien__59063A47">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Reclaim" EntitySet="Reclaim" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Reclaim__IdOrigi__5BE2A6F2" Association="Self.FK__Reclaim__IdOrigi__5BE2A6F2">
+            <End Role="Department" EntitySet="Department" />
+            <End Role="Reclaim" EntitySet="Reclaim" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Reclaim__IdProdu__59FA5E80" Association="Self.FK__Reclaim__IdProdu__59FA5E80">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="Reclaim" EntitySet="Reclaim" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Reclaim__IdRecla__5AEE82B9" Association="Self.FK__Reclaim__IdRecla__5AEE82B9">
+            <End Role="ReclaimType" EntitySet="ReclaimType" />
+            <End Role="Reclaim" EntitySet="Reclaim" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Reclaim__IdRespo__5CD6CB2B" Association="Self.FK__Reclaim__IdRespo__5CD6CB2B">
+            <End Role="Department" EntitySet="Department" />
+            <End Role="Reclaim" EntitySet="Reclaim" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Reclaim__IdStatu__5DCAEF64" Association="Self.FK__Reclaim__IdStatu__5DCAEF64">
+            <End Role="ReclaimsAndComplaintsStatus" EntitySet="ReclaimsAndComplaintsStatus" />
+            <End Role="Reclaim" EntitySet="Reclaim" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RoleOpera__IdOpe__4222D4EF" Association="Self.FK__RoleOpera__IdOpe__4222D4EF">
+            <End Role="Operation" EntitySet="Operation" />
+            <End Role="RoleOperation" EntitySet="RoleOperation" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RoleOpera__IdRol__412EB0B6" Association="Self.FK__RoleOpera__IdRol__412EB0B6">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="RoleOperation" EntitySet="RoleOperation" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Users__IdCountry__4CA06362" Association="Self.FK__Users__IdCountry__4CA06362">
+            <End Role="Country" EntitySet="Country" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Users__IdIdentif__49C3F6B7" Association="Self.FK__Users__IdIdentif__49C3F6B7">
+            <End Role="IdentificationType" EntitySet="IdentificationType" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Users__IdRole__4AB81AF0" Association="Self.FK__Users__IdRole__4AB81AF0">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Users__IdUserSta__4BAC3F29" Association="Self.FK__Users__IdUserSta__4BAC3F29">
+            <End Role="UserStatus" EntitySet="UserStatus" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ReclaimsAndComplaints2Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Complaint">
+          <Key>
+            <PropertyRef Name="IdComplaint" />
+          </Key>
+          <Property Name="IdComplaint" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdClient" Type="Int32" />
+          <Property Name="IdProduct" Type="Int32" />
+          <Property Name="IdComplaintType" Type="Int32" />
+          <Property Name="IdOriginDepartment" Type="Int32" />
+          <Property Name="IdResponsibleDepartment" Type="Int32" />
+          <Property Name="IdStatus" Type="Int32" />
+          <Property Name="CreationDate" Type="DateTime" Precision="0" />
+          <Property Name="Description" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Comment" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Users" Relationship="Self.FK__Complaint__IdCli__60A75C0F" FromRole="Complaint" ToRole="Users" />
+          <NavigationProperty Name="ComplaintType" Relationship="Self.FK__Complaint__IdCom__628FA481" FromRole="Complaint" ToRole="ComplaintType" />
+          <NavigationProperty Name="Department" Relationship="Self.FK__Complaint__IdOri__6383C8BA" FromRole="Complaint" ToRole="Department" />
+          <NavigationProperty Name="Product" Relationship="Self.FK__Complaint__IdPro__619B8048" FromRole="Complaint" ToRole="Product" />
+          <NavigationProperty Name="Department1" Relationship="Self.FK__Complaint__IdRes__6477ECF3" FromRole="Complaint" ToRole="Department" />
+          <NavigationProperty Name="ReclaimsAndComplaintsStatus" Relationship="Self.FK__Complaint__IdSta__656C112C" FromRole="Complaint" ToRole="ReclaimsAndComplaintsStatus" />
+        </EntityType>
+        <EntityType Name="ComplaintType">
+          <Key>
+            <PropertyRef Name="IdComplaintType" />
+          </Key>
+          <Property Name="IdComplaintType" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Complaint" Relationship="Self.FK__Complaint__IdCom__628FA481" FromRole="ComplaintType" ToRole="Complaint" />
+        </EntityType>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="IdCountry" />
+          </Key>
+          <Property Name="IdCountry" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Users" Relationship="Self.FK__Users__IdCountry__4CA06362" FromRole="Country" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Department">
+          <Key>
+            <PropertyRef Name="IdDepartment" />
+          </Key>
+          <Property Name="IdDepartment" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Complaint" Relationship="Self.FK__Complaint__IdOri__6383C8BA" FromRole="Department" ToRole="Complaint" />
+          <NavigationProperty Name="Complaint1" Relationship="Self.FK__Complaint__IdRes__6477ECF3" FromRole="Department" ToRole="Complaint" />
+          <NavigationProperty Name="Reclaim" Relationship="Self.FK__Reclaim__IdOrigi__5BE2A6F2" FromRole="Department" ToRole="Reclaim" />
+          <NavigationProperty Name="Reclaim1" Relationship="Self.FK__Reclaim__IdRespo__5CD6CB2B" FromRole="Department" ToRole="Reclaim" />
+        </EntityType>
+        <EntityType Name="IdentificationType">
+          <Key>
+            <PropertyRef Name="IdIdentificationType" />
+          </Key>
+          <Property Name="IdIdentificationType" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Users" Relationship="Self.FK__Users__IdIdentif__49C3F6B7" FromRole="IdentificationType" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Module">
+          <Key>
+            <PropertyRef Name="IdModule" />
+          </Key>
+          <Property Name="IdModule" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Operation" Relationship="Self.FK__Operation__IdMod__3C69FB99" FromRole="Module" ToRole="Operation" />
+        </EntityType>
+        <EntityType Name="Operation">
+          <Key>
+            <PropertyRef Name="IdOperation" />
+          </Key>
+          <Property Name="IdOperation" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="IdModule" Type="Int32" />
+          <NavigationProperty Name="Module" Relationship="Self.FK__Operation__IdMod__3C69FB99" FromRole="Operation" ToRole="Module" />
+          <NavigationProperty Name="RoleOperation" Relationship="Self.FK__RoleOpera__IdOpe__4222D4EF" FromRole="Operation" ToRole="RoleOperation" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="IdProduct" />
+          </Key>
+          <Property Name="IdProduct" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="Price" Type="Int32" />
+          <NavigationProperty Name="Complaint" Relationship="Self.FK__Complaint__IdPro__619B8048" FromRole="Product" ToRole="Complaint" />
+          <NavigationProperty Name="Reclaim" Relationship="Self.FK__Reclaim__IdProdu__59FA5E80" FromRole="Product" ToRole="Reclaim" />
+        </EntityType>
+        <EntityType Name="Reclaim">
+          <Key>
+            <PropertyRef Name="IdReclaim" />
+          </Key>
+          <Property Name="IdReclaim" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdClient" Type="Int32" />
+          <Property Name="IdProduct" Type="Int32" />
+          <Property Name="IdReclaimType" Type="Int32" />
+          <Property Name="IdOriginDepartment" Type="Int32" />
+          <Property Name="IdResponsibleDepartment" Type="Int32" />
+          <Property Name="IdStatus" Type="Int32" />
+          <Property Name="CreationDate" Type="DateTime" Precision="0" />
+          <Property Name="Description" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Comment" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Department" Relationship="Self.FK__Reclaim__IdOrigi__5BE2A6F2" FromRole="Reclaim" ToRole="Department" />
+          <NavigationProperty Name="Department1" Relationship="Self.FK__Reclaim__IdRespo__5CD6CB2B" FromRole="Reclaim" ToRole="Department" />
+          <NavigationProperty Name="Product" Relationship="Self.FK__Reclaim__IdProdu__59FA5E80" FromRole="Reclaim" ToRole="Product" />
+          <NavigationProperty Name="Users" Relationship="Self.FK__Reclaim__IdClien__59063A47" FromRole="Reclaim" ToRole="Users" />
+          <NavigationProperty Name="ReclaimType" Relationship="Self.FK__Reclaim__IdRecla__5AEE82B9" FromRole="Reclaim" ToRole="ReclaimType" />
+          <NavigationProperty Name="ReclaimsAndComplaintsStatus" Relationship="Self.FK__Reclaim__IdStatu__5DCAEF64" FromRole="Reclaim" ToRole="ReclaimsAndComplaintsStatus" />
+        </EntityType>
+        <EntityType Name="ReclaimsAndComplaintsStatus">
+          <Key>
+            <PropertyRef Name="IdReclaimsAndComplaintsStatus" />
+          </Key>
+          <Property Name="IdReclaimsAndComplaintsStatus" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="description" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Complaint" Relationship="Self.FK__Complaint__IdSta__656C112C" FromRole="ReclaimsAndComplaintsStatus" ToRole="Complaint" />
+          <NavigationProperty Name="Reclaim" Relationship="Self.FK__Reclaim__IdStatu__5DCAEF64" FromRole="ReclaimsAndComplaintsStatus" ToRole="Reclaim" />
+        </EntityType>
+        <EntityType Name="ReclaimType">
+          <Key>
+            <PropertyRef Name="IdReclaimType" />
+          </Key>
+          <Property Name="IdReclaimType" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Reclaim" Relationship="Self.FK__Reclaim__IdRecla__5AEE82B9" FromRole="ReclaimType" ToRole="Reclaim" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="IdRole" />
+          </Key>
+          <Property Name="IdRole" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="RoleOperation" Relationship="Self.FK__RoleOpera__IdRol__412EB0B6" FromRole="Role" ToRole="RoleOperation" />
+          <NavigationProperty Name="Users" Relationship="Self.FK__Users__IdRole__4AB81AF0" FromRole="Role" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="RoleOperation">
+          <Key>
+            <PropertyRef Name="IdRoleOperation" />
+          </Key>
+          <Property Name="IdRoleOperation" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdRole" Type="Int32" />
+          <Property Name="IdOperation" Type="Int32" />
+          <NavigationProperty Name="Operation" Relationship="Self.FK__RoleOpera__IdOpe__4222D4EF" FromRole="RoleOperation" ToRole="Operation" />
+          <NavigationProperty Name="Role" Relationship="Self.FK__RoleOpera__IdRol__412EB0B6" FromRole="RoleOperation" ToRole="Role" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="IdUser" />
+          </Key>
+          <Property Name="IdUser" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Phone" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+          <Property Name="Provincia" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="Sector" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="Municipio" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="Barrio" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="Direccion" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="Direccion2" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="IdIdentificationType" Type="Int32" />
+          <Property Name="IdentificationNumber" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="IdRole" Type="Int32" />
+          <Property Name="IdUserStatus" Type="Int32" />
+          <Property Name="IdCountry" Type="Int32" />
+          <NavigationProperty Name="Complaint" Relationship="Self.FK__Complaint__IdCli__60A75C0F" FromRole="Users" ToRole="Complaint" />
+          <NavigationProperty Name="Country" Relationship="Self.FK__Users__IdCountry__4CA06362" FromRole="Users" ToRole="Country" />
+          <NavigationProperty Name="IdentificationType" Relationship="Self.FK__Users__IdIdentif__49C3F6B7" FromRole="Users" ToRole="IdentificationType" />
+          <NavigationProperty Name="Reclaim" Relationship="Self.FK__Reclaim__IdClien__59063A47" FromRole="Users" ToRole="Reclaim" />
+          <NavigationProperty Name="Role" Relationship="Self.FK__Users__IdRole__4AB81AF0" FromRole="Users" ToRole="Role" />
+          <NavigationProperty Name="UserStatus" Relationship="Self.FK__Users__IdUserSta__4BAC3F29" FromRole="Users" ToRole="UserStatus" />
+        </EntityType>
+        <EntityType Name="UserStatus">
+          <Key>
+            <PropertyRef Name="IdUserStatus" />
+          </Key>
+          <Property Name="IdUserStatus" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Users" Relationship="Self.FK__Users__IdUserSta__4BAC3F29" FromRole="UserStatus" ToRole="Users" />
+        </EntityType>
+        <Association Name="FK__Complaint__IdCli__60A75C0F">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="Complaint" Type="Self.Complaint" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="IdUser" />
+            </Principal>
+            <Dependent Role="Complaint">
+              <PropertyRef Name="IdClient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Complaint__IdCom__628FA481">
+          <End Role="ComplaintType" Type="Self.ComplaintType" Multiplicity="0..1" />
+          <End Role="Complaint" Type="Self.Complaint" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ComplaintType">
+              <PropertyRef Name="IdComplaintType" />
+            </Principal>
+            <Dependent Role="Complaint">
+              <PropertyRef Name="IdComplaintType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Complaint__IdOri__6383C8BA">
+          <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
+          <End Role="Complaint" Type="Self.Complaint" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department">
+              <PropertyRef Name="IdDepartment" />
+            </Principal>
+            <Dependent Role="Complaint">
+              <PropertyRef Name="IdOriginDepartment" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Complaint__IdPro__619B8048">
+          <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+          <End Role="Complaint" Type="Self.Complaint" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="IdProduct" />
+            </Principal>
+            <Dependent Role="Complaint">
+              <PropertyRef Name="IdProduct" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Complaint__IdRes__6477ECF3">
+          <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
+          <End Role="Complaint" Type="Self.Complaint" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department">
+              <PropertyRef Name="IdDepartment" />
+            </Principal>
+            <Dependent Role="Complaint">
+              <PropertyRef Name="IdResponsibleDepartment" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Complaint__IdSta__656C112C">
+          <End Role="ReclaimsAndComplaintsStatus" Type="Self.ReclaimsAndComplaintsStatus" Multiplicity="0..1" />
+          <End Role="Complaint" Type="Self.Complaint" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ReclaimsAndComplaintsStatus">
+              <PropertyRef Name="IdReclaimsAndComplaintsStatus" />
+            </Principal>
+            <Dependent Role="Complaint">
+              <PropertyRef Name="IdStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Users__IdCountry__4CA06362">
+          <End Role="Country" Type="Self.Country" Multiplicity="0..1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="IdCountry" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="IdCountry" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Reclaim__IdOrigi__5BE2A6F2">
+          <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
+          <End Role="Reclaim" Type="Self.Reclaim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department">
+              <PropertyRef Name="IdDepartment" />
+            </Principal>
+            <Dependent Role="Reclaim">
+              <PropertyRef Name="IdOriginDepartment" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Reclaim__IdRespo__5CD6CB2B">
+          <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
+          <End Role="Reclaim" Type="Self.Reclaim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department">
+              <PropertyRef Name="IdDepartment" />
+            </Principal>
+            <Dependent Role="Reclaim">
+              <PropertyRef Name="IdResponsibleDepartment" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Users__IdIdentif__49C3F6B7">
+          <End Role="IdentificationType" Type="Self.IdentificationType" Multiplicity="0..1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IdentificationType">
+              <PropertyRef Name="IdIdentificationType" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="IdIdentificationType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Operation__IdMod__3C69FB99">
+          <End Role="Module" Type="Self.Module" Multiplicity="0..1" />
+          <End Role="Operation" Type="Self.Operation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Module">
+              <PropertyRef Name="IdModule" />
+            </Principal>
+            <Dependent Role="Operation">
+              <PropertyRef Name="IdModule" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RoleOpera__IdOpe__4222D4EF">
+          <End Role="Operation" Type="Self.Operation" Multiplicity="0..1" />
+          <End Role="RoleOperation" Type="Self.RoleOperation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Operation">
+              <PropertyRef Name="IdOperation" />
+            </Principal>
+            <Dependent Role="RoleOperation">
+              <PropertyRef Name="IdOperation" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Reclaim__IdProdu__59FA5E80">
+          <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+          <End Role="Reclaim" Type="Self.Reclaim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="IdProduct" />
+            </Principal>
+            <Dependent Role="Reclaim">
+              <PropertyRef Name="IdProduct" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Reclaim__IdClien__59063A47">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="Reclaim" Type="Self.Reclaim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="IdUser" />
+            </Principal>
+            <Dependent Role="Reclaim">
+              <PropertyRef Name="IdClient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Reclaim__IdRecla__5AEE82B9">
+          <End Role="ReclaimType" Type="Self.ReclaimType" Multiplicity="0..1" />
+          <End Role="Reclaim" Type="Self.Reclaim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ReclaimType">
+              <PropertyRef Name="IdReclaimType" />
+            </Principal>
+            <Dependent Role="Reclaim">
+              <PropertyRef Name="IdReclaimType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Reclaim__IdStatu__5DCAEF64">
+          <End Role="ReclaimsAndComplaintsStatus" Type="Self.ReclaimsAndComplaintsStatus" Multiplicity="0..1" />
+          <End Role="Reclaim" Type="Self.Reclaim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ReclaimsAndComplaintsStatus">
+              <PropertyRef Name="IdReclaimsAndComplaintsStatus" />
+            </Principal>
+            <Dependent Role="Reclaim">
+              <PropertyRef Name="IdStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RoleOpera__IdRol__412EB0B6">
+          <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
+          <End Role="RoleOperation" Type="Self.RoleOperation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="IdRole" />
+            </Principal>
+            <Dependent Role="RoleOperation">
+              <PropertyRef Name="IdRole" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Users__IdRole__4AB81AF0">
+          <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="IdRole" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="IdRole" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Users__IdUserSta__4BAC3F29">
+          <End Role="UserStatus" Type="Self.UserStatus" Multiplicity="0..1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserStatus">
+              <PropertyRef Name="IdUserStatus" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="IdUserStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ReclaimsAndComplaints2Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Complaint" EntityType="Self.Complaint" />
+          <EntitySet Name="ComplaintType" EntityType="Self.ComplaintType" />
+          <EntitySet Name="Country" EntityType="Self.Country" />
+          <EntitySet Name="Department" EntityType="Self.Department" />
+          <EntitySet Name="IdentificationType" EntityType="Self.IdentificationType" />
+          <EntitySet Name="Module" EntityType="Self.Module" />
+          <EntitySet Name="Operation" EntityType="Self.Operation" />
+          <EntitySet Name="Product" EntityType="Self.Product" />
+          <EntitySet Name="Reclaim" EntityType="Self.Reclaim" />
+          <EntitySet Name="ReclaimsAndComplaintsStatus" EntityType="Self.ReclaimsAndComplaintsStatus" />
+          <EntitySet Name="ReclaimType" EntityType="Self.ReclaimType" />
+          <EntitySet Name="Role" EntityType="Self.Role" />
+          <EntitySet Name="RoleOperation" EntityType="Self.RoleOperation" />
+          <EntitySet Name="Users" EntityType="Self.Users" />
+          <EntitySet Name="UserStatus" EntityType="Self.UserStatus" />
+          <AssociationSet Name="FK__Complaint__IdCli__60A75C0F" Association="Self.FK__Complaint__IdCli__60A75C0F">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Complaint" EntitySet="Complaint" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Complaint__IdCom__628FA481" Association="Self.FK__Complaint__IdCom__628FA481">
+            <End Role="ComplaintType" EntitySet="ComplaintType" />
+            <End Role="Complaint" EntitySet="Complaint" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Complaint__IdOri__6383C8BA" Association="Self.FK__Complaint__IdOri__6383C8BA">
+            <End Role="Department" EntitySet="Department" />
+            <End Role="Complaint" EntitySet="Complaint" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Complaint__IdPro__619B8048" Association="Self.FK__Complaint__IdPro__619B8048">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="Complaint" EntitySet="Complaint" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Complaint__IdRes__6477ECF3" Association="Self.FK__Complaint__IdRes__6477ECF3">
+            <End Role="Department" EntitySet="Department" />
+            <End Role="Complaint" EntitySet="Complaint" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Complaint__IdSta__656C112C" Association="Self.FK__Complaint__IdSta__656C112C">
+            <End Role="ReclaimsAndComplaintsStatus" EntitySet="ReclaimsAndComplaintsStatus" />
+            <End Role="Complaint" EntitySet="Complaint" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Users__IdCountry__4CA06362" Association="Self.FK__Users__IdCountry__4CA06362">
+            <End Role="Country" EntitySet="Country" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Reclaim__IdOrigi__5BE2A6F2" Association="Self.FK__Reclaim__IdOrigi__5BE2A6F2">
+            <End Role="Department" EntitySet="Department" />
+            <End Role="Reclaim" EntitySet="Reclaim" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Reclaim__IdRespo__5CD6CB2B" Association="Self.FK__Reclaim__IdRespo__5CD6CB2B">
+            <End Role="Department" EntitySet="Department" />
+            <End Role="Reclaim" EntitySet="Reclaim" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Users__IdIdentif__49C3F6B7" Association="Self.FK__Users__IdIdentif__49C3F6B7">
+            <End Role="IdentificationType" EntitySet="IdentificationType" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Operation__IdMod__3C69FB99" Association="Self.FK__Operation__IdMod__3C69FB99">
+            <End Role="Module" EntitySet="Module" />
+            <End Role="Operation" EntitySet="Operation" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RoleOpera__IdOpe__4222D4EF" Association="Self.FK__RoleOpera__IdOpe__4222D4EF">
+            <End Role="Operation" EntitySet="Operation" />
+            <End Role="RoleOperation" EntitySet="RoleOperation" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Reclaim__IdProdu__59FA5E80" Association="Self.FK__Reclaim__IdProdu__59FA5E80">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="Reclaim" EntitySet="Reclaim" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Reclaim__IdClien__59063A47" Association="Self.FK__Reclaim__IdClien__59063A47">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Reclaim" EntitySet="Reclaim" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Reclaim__IdRecla__5AEE82B9" Association="Self.FK__Reclaim__IdRecla__5AEE82B9">
+            <End Role="ReclaimType" EntitySet="ReclaimType" />
+            <End Role="Reclaim" EntitySet="Reclaim" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Reclaim__IdStatu__5DCAEF64" Association="Self.FK__Reclaim__IdStatu__5DCAEF64">
+            <End Role="ReclaimsAndComplaintsStatus" EntitySet="ReclaimsAndComplaintsStatus" />
+            <End Role="Reclaim" EntitySet="Reclaim" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RoleOpera__IdRol__412EB0B6" Association="Self.FK__RoleOpera__IdRol__412EB0B6">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="RoleOperation" EntitySet="RoleOperation" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Users__IdRole__4AB81AF0" Association="Self.FK__Users__IdRole__4AB81AF0">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Users__IdUserSta__4BAC3F29" Association="Self.FK__Users__IdUserSta__4BAC3F29">
+            <End Role="UserStatus" EntitySet="UserStatus" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ReclaimsAndComplaints2ModelStoreContainer" CdmEntityContainer="ReclaimsAndComplaints2Entities">
+          <EntitySetMapping Name="Complaint">
+            <EntityTypeMapping TypeName="ReclaimsAndComplaints2Model.Complaint">
+              <MappingFragment StoreEntitySet="Complaint">
+                <ScalarProperty Name="IdComplaint" ColumnName="IdComplaint" />
+                <ScalarProperty Name="IdClient" ColumnName="IdClient" />
+                <ScalarProperty Name="IdProduct" ColumnName="IdProduct" />
+                <ScalarProperty Name="IdComplaintType" ColumnName="IdComplaintType" />
+                <ScalarProperty Name="IdOriginDepartment" ColumnName="IdOriginDepartment" />
+                <ScalarProperty Name="IdResponsibleDepartment" ColumnName="IdResponsibleDepartment" />
+                <ScalarProperty Name="IdStatus" ColumnName="IdStatus" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ComplaintType">
+            <EntityTypeMapping TypeName="ReclaimsAndComplaints2Model.ComplaintType">
+              <MappingFragment StoreEntitySet="ComplaintType">
+                <ScalarProperty Name="IdComplaintType" ColumnName="IdComplaintType" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Country">
+            <EntityTypeMapping TypeName="ReclaimsAndComplaints2Model.Country">
+              <MappingFragment StoreEntitySet="Country">
+                <ScalarProperty Name="IdCountry" ColumnName="IdCountry" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Department">
+            <EntityTypeMapping TypeName="ReclaimsAndComplaints2Model.Department">
+              <MappingFragment StoreEntitySet="Department">
+                <ScalarProperty Name="IdDepartment" ColumnName="IdDepartment" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IdentificationType">
+            <EntityTypeMapping TypeName="ReclaimsAndComplaints2Model.IdentificationType">
+              <MappingFragment StoreEntitySet="IdentificationType">
+                <ScalarProperty Name="IdIdentificationType" ColumnName="IdIdentificationType" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Module">
+            <EntityTypeMapping TypeName="ReclaimsAndComplaints2Model.Module">
+              <MappingFragment StoreEntitySet="Module">
+                <ScalarProperty Name="IdModule" ColumnName="IdModule" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Operation">
+            <EntityTypeMapping TypeName="ReclaimsAndComplaints2Model.Operation">
+              <MappingFragment StoreEntitySet="Operation">
+                <ScalarProperty Name="IdOperation" ColumnName="IdOperation" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="IdModule" ColumnName="IdModule" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Product">
+            <EntityTypeMapping TypeName="ReclaimsAndComplaints2Model.Product">
+              <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="IdProduct" ColumnName="IdProduct" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Reclaim">
+            <EntityTypeMapping TypeName="ReclaimsAndComplaints2Model.Reclaim">
+              <MappingFragment StoreEntitySet="Reclaim">
+                <ScalarProperty Name="IdReclaim" ColumnName="IdReclaim" />
+                <ScalarProperty Name="IdClient" ColumnName="IdClient" />
+                <ScalarProperty Name="IdProduct" ColumnName="IdProduct" />
+                <ScalarProperty Name="IdReclaimType" ColumnName="IdReclaimType" />
+                <ScalarProperty Name="IdOriginDepartment" ColumnName="IdOriginDepartment" />
+                <ScalarProperty Name="IdResponsibleDepartment" ColumnName="IdResponsibleDepartment" />
+                <ScalarProperty Name="IdStatus" ColumnName="IdStatus" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ReclaimsAndComplaintsStatus">
+            <EntityTypeMapping TypeName="ReclaimsAndComplaints2Model.ReclaimsAndComplaintsStatus">
+              <MappingFragment StoreEntitySet="ReclaimsAndComplaintsStatus">
+                <ScalarProperty Name="IdReclaimsAndComplaintsStatus" ColumnName="IdReclaimsAndComplaintsStatus" />
+                <ScalarProperty Name="description" ColumnName="description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ReclaimType">
+            <EntityTypeMapping TypeName="ReclaimsAndComplaints2Model.ReclaimType">
+              <MappingFragment StoreEntitySet="ReclaimType">
+                <ScalarProperty Name="IdReclaimType" ColumnName="IdReclaimType" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Role">
+            <EntityTypeMapping TypeName="ReclaimsAndComplaints2Model.Role">
+              <MappingFragment StoreEntitySet="Role">
+                <ScalarProperty Name="IdRole" ColumnName="IdRole" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RoleOperation">
+            <EntityTypeMapping TypeName="ReclaimsAndComplaints2Model.RoleOperation">
+              <MappingFragment StoreEntitySet="RoleOperation">
+                <ScalarProperty Name="IdRoleOperation" ColumnName="IdRoleOperation" />
+                <ScalarProperty Name="IdRole" ColumnName="IdRole" />
+                <ScalarProperty Name="IdOperation" ColumnName="IdOperation" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="ReclaimsAndComplaints2Model.Users">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Provincia" ColumnName="Provincia" />
+                <ScalarProperty Name="Sector" ColumnName="Sector" />
+                <ScalarProperty Name="Municipio" ColumnName="Municipio" />
+                <ScalarProperty Name="Barrio" ColumnName="Barrio" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Direccion2" ColumnName="Direccion2" />
+                <ScalarProperty Name="IdIdentificationType" ColumnName="IdIdentificationType" />
+                <ScalarProperty Name="IdentificationNumber" ColumnName="IdentificationNumber" />
+                <ScalarProperty Name="IdRole" ColumnName="IdRole" />
+                <ScalarProperty Name="IdUserStatus" ColumnName="IdUserStatus" />
+                <ScalarProperty Name="IdCountry" ColumnName="IdCountry" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserStatus">
+            <EntityTypeMapping TypeName="ReclaimsAndComplaints2Model.UserStatus">
+              <MappingFragment StoreEntitySet="UserStatus">
+                <ScalarProperty Name="IdUserStatus" ColumnName="IdUserStatus" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

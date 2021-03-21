@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ReclaimsAndComplaints2ModelStoreContainer" CdmEntityContainer="ReclaimsAndComplaints2Entities">
+    <EntitySetMapping Name="Complaint">
+      <EntityTypeMapping TypeName="ReclaimsAndComplaints2Model.Complaint">
+        <MappingFragment StoreEntitySet="Complaint">
+          <ScalarProperty Name="IdComplaint" ColumnName="IdComplaint" />
+          <ScalarProperty Name="IdClient" ColumnName="IdClient" />
+          <ScalarProperty Name="IdProduct" ColumnName="IdProduct" />
+          <ScalarProperty Name="IdComplaintType" ColumnName="IdComplaintType" />
+          <ScalarProperty Name="IdOriginDepartment" ColumnName="IdOriginDepartment" />
+          <ScalarProperty Name="IdResponsibleDepartment" ColumnName="IdResponsibleDepartment" />
+          <ScalarProperty Name="IdStatus" ColumnName="IdStatus" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ComplaintType">
+      <EntityTypeMapping TypeName="ReclaimsAndComplaints2Model.ComplaintType">
+        <MappingFragment StoreEntitySet="ComplaintType">
+          <ScalarProperty Name="IdComplaintType" ColumnName="IdComplaintType" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Country">
+      <EntityTypeMapping TypeName="ReclaimsAndComplaints2Model.Country">
+        <MappingFragment StoreEntitySet="Country">
+          <ScalarProperty Name="IdCountry" ColumnName="IdCountry" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Department">
+      <EntityTypeMapping TypeName="ReclaimsAndComplaints2Model.Department">
+        <MappingFragment StoreEntitySet="Department">
+          <ScalarProperty Name="IdDepartment" ColumnName="IdDepartment" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IdentificationType">
+      <EntityTypeMapping TypeName="ReclaimsAndComplaints2Model.IdentificationType">
+        <MappingFragment StoreEntitySet="IdentificationType">
+          <ScalarProperty Name="IdIdentificationType" ColumnName="IdIdentificationType" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Module">
+      <EntityTypeMapping TypeName="ReclaimsAndComplaints2Model.Module">
+        <MappingFragment StoreEntitySet="Module">
+          <ScalarProperty Name="IdModule" ColumnName="IdModule" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Operation">
+      <EntityTypeMapping TypeName="ReclaimsAndComplaints2Model.Operation">
+        <MappingFragment StoreEntitySet="Operation">
+          <ScalarProperty Name="IdOperation" ColumnName="IdOperation" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="IdModule" ColumnName="IdModule" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Product">
+      <EntityTypeMapping TypeName="ReclaimsAndComplaints2Model.Product">
+        <MappingFragment StoreEntitySet="Product">
+          <ScalarProperty Name="IdProduct" ColumnName="IdProduct" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Reclaim">
+      <EntityTypeMapping TypeName="ReclaimsAndComplaints2Model.Reclaim">
+        <MappingFragment StoreEntitySet="Reclaim">
+          <ScalarProperty Name="IdReclaim" ColumnName="IdReclaim" />
+          <ScalarProperty Name="IdClient" ColumnName="IdClient" />
+          <ScalarProperty Name="IdProduct" ColumnName="IdProduct" />
+          <ScalarProperty Name="IdReclaimType" ColumnName="IdReclaimType" />
+          <ScalarProperty Name="IdOriginDepartment" ColumnName="IdOriginDepartment" />
+          <ScalarProperty Name="IdResponsibleDepartment" ColumnName="IdResponsibleDepartment" />
+          <ScalarProperty Name="IdStatus" ColumnName="IdStatus" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ReclaimsAndComplaintsStatus">
+      <EntityTypeMapping TypeName="ReclaimsAndComplaints2Model.ReclaimsAndComplaintsStatus">
+        <MappingFragment StoreEntitySet="ReclaimsAndComplaintsStatus">
+          <ScalarProperty Name="IdReclaimsAndComplaintsStatus" ColumnName="IdReclaimsAndComplaintsStatus" />
+          <ScalarProperty Name="description" ColumnName="description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ReclaimType">
+      <EntityTypeMapping TypeName="ReclaimsAndComplaints2Model.ReclaimType">
+        <MappingFragment StoreEntitySet="ReclaimType">
+          <ScalarProperty Name="IdReclaimType" ColumnName="IdReclaimType" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Role">
+      <EntityTypeMapping TypeName="ReclaimsAndComplaints2Model.Role">
+        <MappingFragment StoreEntitySet="Role">
+          <ScalarProperty Name="IdRole" ColumnName="IdRole" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RoleOperation">
+      <EntityTypeMapping TypeName="ReclaimsAndComplaints2Model.RoleOperation">
+        <MappingFragment StoreEntitySet="RoleOperation">
+          <ScalarProperty Name="IdRoleOperation" ColumnName="IdRoleOperation" />
+          <ScalarProperty Name="IdRole" ColumnName="IdRole" />
+          <ScalarProperty Name="IdOperation" ColumnName="IdOperation" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="ReclaimsAndComplaints2Model.Users">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Provincia" ColumnName="Provincia" />
+          <ScalarProperty Name="Sector" ColumnName="Sector" />
+          <ScalarProperty Name="Municipio" ColumnName="Municipio" />
+          <ScalarProperty Name="Barrio" ColumnName="Barrio" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="Direccion2" ColumnName="Direccion2" />
+          <ScalarProperty Name="IdIdentificationType" ColumnName="IdIdentificationType" />
+          <ScalarProperty Name="IdentificationNumber" ColumnName="IdentificationNumber" />
+          <ScalarProperty Name="IdRole" ColumnName="IdRole" />
+          <ScalarProperty Name="IdUserStatus" ColumnName="IdUserStatus" />
+          <ScalarProperty Name="IdCountry" ColumnName="IdCountry" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserStatus">
+      <EntityTypeMapping TypeName="ReclaimsAndComplaints2Model.UserStatus">
+        <MappingFragment StoreEntitySet="UserStatus">
+          <ScalarProperty Name="IdUserStatus" ColumnName="IdUserStatus" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

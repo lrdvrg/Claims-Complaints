@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e64061fefc834627b021455ec34bb7a3" Name="Diagram1" ZoomLevel="63">
+        <EntityTypeShape EntityType="ReclaimsAndComplaints2Model.Complaint" Width="1.5" PointX="8.25" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ReclaimsAndComplaints2Model.ComplaintType" Width="1.5" PointX="6" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ReclaimsAndComplaints2Model.Country" Width="1.5" PointX="3.75" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ReclaimsAndComplaints2Model.Department" Width="1.5" PointX="6" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="ReclaimsAndComplaints2Model.IdentificationType" Width="1.5" PointX="3.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ReclaimsAndComplaints2Model.Module" Width="1.5" PointX="1.5" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ReclaimsAndComplaints2Model.Operation" Width="1.5" PointX="0.75" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ReclaimsAndComplaints2Model.Product" Width="1.5" PointX="6" PointY="14.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ReclaimsAndComplaints2Model.Reclaim" Width="1.5" PointX="11.25" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ReclaimsAndComplaints2Model.ReclaimsAndComplaintsStatus" Width="1.5" PointX="6" PointY="17.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ReclaimsAndComplaints2Model.ReclaimType" Width="1.5" PointX="9" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ReclaimsAndComplaints2Model.Role" Width="1.5" PointX="0.75" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ReclaimsAndComplaints2Model.RoleOperation" Width="1.5" PointX="3" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ReclaimsAndComplaints2Model.Users" Width="1.5" PointX="6" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ReclaimsAndComplaints2Model.UserStatus" Width="1.5" PointX="3.75" PointY="12.125" IsExpanded="true" />
+        <AssociationConnector Association="ReclaimsAndComplaints2Model.FK__Complaint__IdCli__60A75C0F" ManuallyRouted="false" />
+        <AssociationConnector Association="ReclaimsAndComplaints2Model.FK__Complaint__IdCom__628FA481" ManuallyRouted="false" />
+        <AssociationConnector Association="ReclaimsAndComplaints2Model.FK__Complaint__IdOri__6383C8BA" ManuallyRouted="false" />
+        <AssociationConnector Association="ReclaimsAndComplaints2Model.FK__Complaint__IdPro__619B8048" ManuallyRouted="false" />
+        <AssociationConnector Association="ReclaimsAndComplaints2Model.FK__Complaint__IdRes__6477ECF3" ManuallyRouted="false" />
+        <AssociationConnector Association="ReclaimsAndComplaints2Model.FK__Complaint__IdSta__656C112C" ManuallyRouted="false" />
+        <AssociationConnector Association="ReclaimsAndComplaints2Model.FK__Users__IdCountry__4CA06362" ManuallyRouted="false" />
+        <AssociationConnector Association="ReclaimsAndComplaints2Model.FK__Reclaim__IdOrigi__5BE2A6F2" ManuallyRouted="false" />
+        <AssociationConnector Association="ReclaimsAndComplaints2Model.FK__Reclaim__IdRespo__5CD6CB2B" ManuallyRouted="false" />
+        <AssociationConnector Association="ReclaimsAndComplaints2Model.FK__Users__IdIdentif__49C3F6B7" ManuallyRouted="false" />
+        <AssociationConnector Association="ReclaimsAndComplaints2Model.FK__Operation__IdMod__3C69FB99" ManuallyRouted="false" />
+        <AssociationConnector Association="ReclaimsAndComplaints2Model.FK__RoleOpera__IdOpe__4222D4EF" ManuallyRouted="false" />
+        <AssociationConnector Association="ReclaimsAndComplaints2Model.FK__Reclaim__IdProdu__59FA5E80" ManuallyRouted="false" />
+        <AssociationConnector Association="ReclaimsAndComplaints2Model.FK__Reclaim__IdClien__59063A47" ManuallyRouted="false" />
+        <AssociationConnector Association="ReclaimsAndComplaints2Model.FK__Reclaim__IdRecla__5AEE82B9" ManuallyRouted="false" />
+        <AssociationConnector Association="ReclaimsAndComplaints2Model.FK__Reclaim__IdStatu__5DCAEF64" ManuallyRouted="false" />
+        <AssociationConnector Association="ReclaimsAndComplaints2Model.FK__RoleOpera__IdRol__412EB0B6" ManuallyRouted="false" />
+        <AssociationConnector Association="ReclaimsAndComplaints2Model.FK__Users__IdRole__4AB81AF0" ManuallyRouted="false" />
+        <AssociationConnector Association="ReclaimsAndComplaints2Model.FK__Users__IdUserSta__4BAC3F29" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
