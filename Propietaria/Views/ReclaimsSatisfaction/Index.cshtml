@@ -1,0 +1,87 @@
+﻿@model IEnumerable<Propietaria.Models.Reclaim>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CreationDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Comment)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Department.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Department1.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Product.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Users.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReclaimType.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReclaimsAndComplaintsStatus.description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Satisfaction1.Name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreationDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Comment)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Department.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Department1.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Product.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Users.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReclaimType.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReclaimsAndComplaintsStatus.description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Satisfaction1.Name)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IdReclaim }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IdReclaim }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IdReclaim })
+        </td>
+    </tr>
+}
+
+</table>

@@ -83,8 +83,8 @@ C:\Users\isaid\source\repos\Propietaria\Propietaria\bin\es\System.Web.Razor.reso
 C:\Users\isaid\source\repos\Propietaria\Propietaria\bin\es\System.Web.WebPages.resources.dll
 C:\Users\isaid\source\repos\Propietaria\Propietaria\bin\es\System.Web.WebPages.Deployment.resources.dll
 C:\Users\isaid\source\repos\Propietaria\Propietaria\bin\es\System.Web.WebPages.Razor.resources.dll
-C:\Users\isaid\source\repos\Propietaria\Propietaria\obj\Debug\Propietaria.csprojAssemblyReference.cache
 C:\Users\isaid\source\repos\Propietaria\Propietaria\obj\Debug\Propietaria.csproj.CoreCompileInputs.cache
 C:\Users\isaid\source\repos\Propietaria\Propietaria\obj\Debug\Propietaria.csproj.CopyComplete
 C:\Users\isaid\source\repos\Propietaria\Propietaria\obj\Debug\Propietaria.dll
 C:\Users\isaid\source\repos\Propietaria\Propietaria\obj\Debug\Propietaria.pdb
+C:\Users\isaid\source\repos\Propietaria\Propietaria\obj\Debug\Propietaria.csprojAssemblyReference.cache

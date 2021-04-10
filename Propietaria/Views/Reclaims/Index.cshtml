@@ -1,5 +1,5 @@
 ﻿@model IEnumerable<Propietaria.Models.Reclaim>
-    @{ Propietaria.Models.Users user = (Propietaria.Models.Users)Session["User"]; }
+@{ Propietaria.Models.Users user = (Propietaria.Models.Users)Session["User"]; }
 @{ Propietaria.Models.ReclaimsAndComplaints2Entities db = new Propietaria.Models.ReclaimsAndComplaints2Entities(); }
 
 @{
@@ -13,6 +13,9 @@
     {
         <p>
             @Html.ActionLink("Agregar", "Create")
+        </p>
+        <p>
+            @Html.ActionLink("Exportar", "Excel")
         </p>
     }
 }
@@ -43,6 +46,9 @@
             Comentario
         </th>
         <th>
+            Calificación
+        </th>
+        <th>
             Estado
         </th>
         <th></th>
@@ -50,47 +56,59 @@
 
     @foreach (var item in Model)
     {
-<tr>
-    <td>
-        @Html.DisplayFor(modelItem => item.Users.Name)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.CreationDate)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Description)
-    </td>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Users.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreationDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
 
-    <td>
-        @Html.DisplayFor(modelItem => item.Department.Name)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Department1.Name)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Product.Name)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.ReclaimType.Name)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Comment)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.ReclaimsAndComplaintsStatus.description)
-    </td>
-    @if (@user != null)
-    {
-        if (user.IdRole == (from e in db.Role where e.Description == "Empleado" select e.IdRole).First())
-        {
-<td>
-    @Html.ActionLink("Editar", "Edit", new { id = item.IdReclaim }) |
-    @Html.ActionLink("Ver", "Details", new { id = item.IdReclaim }) |
-    @Html.ActionLink("Responder", "Edit", "ReclaimsResponses", new { id = item.IdReclaim }, null) |
-    @Html.ActionLink("Eliminar", "Delete", new { id = item.IdReclaim })
-</td>
-        }
-    }
+            <td>
+                @Html.DisplayFor(modelItem => item.Department.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Department1.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Product.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReclaimType.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Comment)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Satisfaction1.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReclaimsAndComplaintsStatus.description)
+            </td>
+            @if (@user != null)
+            {
+                if (user.IdRole == (from e in db.Role where e.Description == "Empleado" select e.IdRole).First())
+                {
+                    <td>
+                        @Html.ActionLink("Editar", "Edit", new { id = item.IdReclaim }) |
+                        @Html.ActionLink("Ver", "Details", new { id = item.IdReclaim }) |
+                        @Html.ActionLink("Responder", "Edit", "ReclaimsResponses", new { id = item.IdReclaim }, null) |
+                        @Html.ActionLink("Eliminar", "Delete", new { id = item.IdReclaim })
+                    </td>
+                }
+                if (user.IdRole == (from e in db.Role where e.Description == "Cliente" select e.IdRole).First())
+                {
+                    if (item.ReclaimsAndComplaintsStatus.description == "Respondida")
+                    {
+                        <td>
+                            @Html.ActionLink("Calificar", "Edit", "ReclaimsSatisfaction", new { id = item.IdReclaim }, null)
+                        </td>
+                    }
+                }
+            }
         </tr>
     }
 

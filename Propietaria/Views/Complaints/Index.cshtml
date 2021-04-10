@@ -15,6 +15,10 @@
         <p>
             @Html.ActionLink("Agregar", "Create")
         </p>
+        <p>
+            @Html.ActionLink("Exportar", "Excel")
+        </p>
+        
     }
 }
 <table class="table">
@@ -42,6 +46,9 @@
         </th>
         <th>
             Comentario
+        </th>
+        <th>
+            Calificación
         </th>
         <th>
             Estado
@@ -78,6 +85,9 @@
                 @Html.DisplayFor(modelItem => item.Comment)
             </td>
             <td>
+                @Html.DisplayFor(modelItem => item.Satisfaction1.Name)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.ReclaimsAndComplaintsStatus.description)
             </td>
             @if (@user != null)
@@ -90,6 +100,15 @@
                         @Html.ActionLink("Responder", "Edit", "ComplaintsResponses", new { id = item.IdComplaint }, null) |
                         @Html.ActionLink("Eliminar", "Delete", new { id = item.IdComplaint })
                     </td>
+                }
+                if (user.IdRole == (from e in db.Role where e.Description == "Cliente" select e.IdRole).First())
+                {
+                    if (item.ReclaimsAndComplaintsStatus.description == "Respondida")
+                    {
+                        <td>
+                            @Html.ActionLink("Calificar", "Edit", "ComplaintsSatisfaction", new { id = item.IdComplaint }, null)
+                        </td>
+                    }
                 }
             }
         </tr>

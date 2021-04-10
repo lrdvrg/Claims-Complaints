@@ -20,6 +20,8 @@
     <NavigationProperty Name="Product" Relationship="Self.FK__Complaint__IdPro__619B8048" FromRole="Complaint" ToRole="Product" />
     <NavigationProperty Name="Department1" Relationship="Self.FK__Complaint__IdRes__6477ECF3" FromRole="Complaint" ToRole="Department" />
     <NavigationProperty Name="ReclaimsAndComplaintsStatus" Relationship="Self.FK__Complaint__IdSta__656C112C" FromRole="Complaint" ToRole="ReclaimsAndComplaintsStatus" />
+    <Property Name="Satisfaction" Type="Int32" />
+    <NavigationProperty Name="Satisfaction1" Relationship="ReclaimsAndComplaints2Model.FK__Complaint__Satis__70DDC3D8" FromRole="Complaint" ToRole="Satisfaction" />
   </EntityType>
   <EntityType Name="ComplaintType">
     <Key>
@@ -104,6 +106,8 @@
     <NavigationProperty Name="Users" Relationship="Self.FK__Reclaim__IdClien__59063A47" FromRole="Reclaim" ToRole="Users" />
     <NavigationProperty Name="ReclaimType" Relationship="Self.FK__Reclaim__IdRecla__5AEE82B9" FromRole="Reclaim" ToRole="ReclaimType" />
     <NavigationProperty Name="ReclaimsAndComplaintsStatus" Relationship="Self.FK__Reclaim__IdStatu__5DCAEF64" FromRole="Reclaim" ToRole="ReclaimsAndComplaintsStatus" />
+    <Property Name="Satisfaction" Type="Int32" />
+    <NavigationProperty Name="Satisfaction1" Relationship="ReclaimsAndComplaints2Model.FK__Reclaim__Satisfa__6FE99F9F" FromRole="Reclaim" ToRole="Satisfaction" />
   </EntityType>
   <EntityType Name="ReclaimsAndComplaintsStatus">
     <Key>
@@ -497,5 +501,47 @@
       <End Role="UserStatus" EntitySet="UserStatus" />
       <End Role="Users" EntitySet="Users" />
     </AssociationSet>
+    <EntitySet Name="Satisfaction" EntityType="ReclaimsAndComplaints2Model.Satisfaction" />
+    <AssociationSet Name="FK__Complaint__Satis__70DDC3D8" Association="ReclaimsAndComplaints2Model.FK__Complaint__Satis__70DDC3D8">
+      <End Role="Satisfaction" EntitySet="Satisfaction" />
+      <End Role="Complaint" EntitySet="Complaint" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Reclaim__Satisfa__6FE99F9F" Association="ReclaimsAndComplaints2Model.FK__Reclaim__Satisfa__6FE99F9F">
+      <End Role="Satisfaction" EntitySet="Satisfaction" />
+      <End Role="Reclaim" EntitySet="Reclaim" />
+    </AssociationSet>
   </EntityContainer>
+  <EntityType Name="Satisfaction">
+    <Key>
+      <PropertyRef Name="IdSatisfaction" />
+    </Key>
+    <Property Name="IdSatisfaction" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Complaint" Relationship="ReclaimsAndComplaints2Model.FK__Complaint__Satis__70DDC3D8" FromRole="Satisfaction" ToRole="Complaint" />
+    <NavigationProperty Name="Reclaim" Relationship="ReclaimsAndComplaints2Model.FK__Reclaim__Satisfa__6FE99F9F" FromRole="Satisfaction" ToRole="Reclaim" />
+  </EntityType>
+  <Association Name="FK__Complaint__Satis__70DDC3D8">
+    <End Type="ReclaimsAndComplaints2Model.Satisfaction" Role="Satisfaction" Multiplicity="0..1" />
+    <End Type="ReclaimsAndComplaints2Model.Complaint" Role="Complaint" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Satisfaction">
+        <PropertyRef Name="IdSatisfaction" />
+      </Principal>
+      <Dependent Role="Complaint">
+        <PropertyRef Name="Satisfaction" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Reclaim__Satisfa__6FE99F9F">
+    <End Type="ReclaimsAndComplaints2Model.Satisfaction" Role="Satisfaction" Multiplicity="0..1" />
+    <End Type="ReclaimsAndComplaints2Model.Reclaim" Role="Reclaim" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Satisfaction">
+        <PropertyRef Name="IdSatisfaction" />
+      </Principal>
+      <Dependent Role="Reclaim">
+        <PropertyRef Name="Satisfaction" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

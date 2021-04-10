@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="ReclaimsAndComplaints2Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="ReclaimsAndComplaints2Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Complaint">
           <Key>
             <PropertyRef Name="IdComplaint" />
@@ -19,6 +19,7 @@
           <Property Name="CreationDate" Type="date" />
           <Property Name="Description" Type="varchar" MaxLength="300" />
           <Property Name="Comment" Type="varchar" MaxLength="300" />
+          <Property Name="Satisfaction" Type="int" />
         </EntityType>
         <EntityType Name="ComplaintType">
           <Key>
@@ -85,6 +86,7 @@
           <Property Name="CreationDate" Type="date" />
           <Property Name="Description" Type="varchar" MaxLength="300" />
           <Property Name="Comment" Type="varchar" MaxLength="300" />
+          <Property Name="Satisfaction" Type="int" />
         </EntityType>
         <EntityType Name="ReclaimsAndComplaintsStatus">
           <Key>
@@ -114,6 +116,13 @@
           <Property Name="IdRoleOperation" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IdRole" Type="int" />
           <Property Name="IdOperation" Type="int" />
+        </EntityType>
+        <EntityType Name="Satisfaction">
+          <Key>
+            <PropertyRef Name="IdSatisfaction" />
+          </Key>
+          <Property Name="IdSatisfaction" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="30" />
         </EntityType>
         <EntityType Name="Users">
           <Key>
@@ -216,6 +225,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__Complaint__Satis__70DDC3D8">
+          <End Role="Satisfaction" Type="Self.Satisfaction" Multiplicity="0..1" />
+          <End Role="Complaint" Type="Self.Complaint" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Satisfaction">
+              <PropertyRef Name="IdSatisfaction" />
+            </Principal>
+            <Dependent Role="Complaint">
+              <PropertyRef Name="Satisfaction" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__Operation__IdMod__3C69FB99">
           <End Role="Module" Type="Self.Module" Multiplicity="0..1" />
           <End Role="Operation" Type="Self.Operation" Multiplicity="*" />
@@ -297,6 +318,18 @@
             </Principal>
             <Dependent Role="Reclaim">
               <PropertyRef Name="IdStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Reclaim__Satisfa__6FE99F9F">
+          <End Role="Satisfaction" Type="Self.Satisfaction" Multiplicity="0..1" />
+          <End Role="Reclaim" Type="Self.Reclaim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Satisfaction">
+              <PropertyRef Name="IdSatisfaction" />
+            </Principal>
+            <Dependent Role="Reclaim">
+              <PropertyRef Name="Satisfaction" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -386,6 +419,7 @@
           <EntitySet Name="ReclaimType" EntityType="Self.ReclaimType" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RoleOperation" EntityType="Self.RoleOperation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Satisfaction" EntityType="Self.Satisfaction" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserStatus" EntityType="Self.UserStatus" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK__Complaint__IdCli__60A75C0F" Association="Self.FK__Complaint__IdCli__60A75C0F">
@@ -410,6 +444,10 @@
           </AssociationSet>
           <AssociationSet Name="FK__Complaint__IdSta__656C112C" Association="Self.FK__Complaint__IdSta__656C112C">
             <End Role="ReclaimsAndComplaintsStatus" EntitySet="ReclaimsAndComplaintsStatus" />
+            <End Role="Complaint" EntitySet="Complaint" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Complaint__Satis__70DDC3D8" Association="Self.FK__Complaint__Satis__70DDC3D8">
+            <End Role="Satisfaction" EntitySet="Satisfaction" />
             <End Role="Complaint" EntitySet="Complaint" />
           </AssociationSet>
           <AssociationSet Name="FK__Operation__IdMod__3C69FB99" Association="Self.FK__Operation__IdMod__3C69FB99">
@@ -440,6 +478,10 @@
             <End Role="ReclaimsAndComplaintsStatus" EntitySet="ReclaimsAndComplaintsStatus" />
             <End Role="Reclaim" EntitySet="Reclaim" />
           </AssociationSet>
+          <AssociationSet Name="FK__Reclaim__Satisfa__6FE99F9F" Association="Self.FK__Reclaim__Satisfa__6FE99F9F">
+            <End Role="Satisfaction" EntitySet="Satisfaction" />
+            <End Role="Reclaim" EntitySet="Reclaim" />
+          </AssociationSet>
           <AssociationSet Name="FK__RoleOpera__IdOpe__4222D4EF" Association="Self.FK__RoleOpera__IdOpe__4222D4EF">
             <End Role="Operation" EntitySet="Operation" />
             <End Role="RoleOperation" EntitySet="RoleOperation" />
@@ -465,8 +507,7 @@
             <End Role="Users" EntitySet="Users" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ReclaimsAndComplaints2Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -490,6 +531,8 @@
           <NavigationProperty Name="Product" Relationship="Self.FK__Complaint__IdPro__619B8048" FromRole="Complaint" ToRole="Product" />
           <NavigationProperty Name="Department1" Relationship="Self.FK__Complaint__IdRes__6477ECF3" FromRole="Complaint" ToRole="Department" />
           <NavigationProperty Name="ReclaimsAndComplaintsStatus" Relationship="Self.FK__Complaint__IdSta__656C112C" FromRole="Complaint" ToRole="ReclaimsAndComplaintsStatus" />
+          <Property Name="Satisfaction" Type="Int32" />
+          <NavigationProperty Name="Satisfaction1" Relationship="ReclaimsAndComplaints2Model.FK__Complaint__Satis__70DDC3D8" FromRole="Complaint" ToRole="Satisfaction" />
         </EntityType>
         <EntityType Name="ComplaintType">
           <Key>
@@ -574,6 +617,8 @@
           <NavigationProperty Name="Users" Relationship="Self.FK__Reclaim__IdClien__59063A47" FromRole="Reclaim" ToRole="Users" />
           <NavigationProperty Name="ReclaimType" Relationship="Self.FK__Reclaim__IdRecla__5AEE82B9" FromRole="Reclaim" ToRole="ReclaimType" />
           <NavigationProperty Name="ReclaimsAndComplaintsStatus" Relationship="Self.FK__Reclaim__IdStatu__5DCAEF64" FromRole="Reclaim" ToRole="ReclaimsAndComplaintsStatus" />
+          <Property Name="Satisfaction" Type="Int32" />
+          <NavigationProperty Name="Satisfaction1" Relationship="ReclaimsAndComplaints2Model.FK__Reclaim__Satisfa__6FE99F9F" FromRole="Reclaim" ToRole="Satisfaction" />
         </EntityType>
         <EntityType Name="ReclaimsAndComplaintsStatus">
           <Key>
@@ -967,7 +1012,49 @@
             <End Role="UserStatus" EntitySet="UserStatus" />
             <End Role="Users" EntitySet="Users" />
           </AssociationSet>
+          <EntitySet Name="Satisfaction" EntityType="ReclaimsAndComplaints2Model.Satisfaction" />
+          <AssociationSet Name="FK__Complaint__Satis__70DDC3D8" Association="ReclaimsAndComplaints2Model.FK__Complaint__Satis__70DDC3D8">
+            <End Role="Satisfaction" EntitySet="Satisfaction" />
+            <End Role="Complaint" EntitySet="Complaint" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Reclaim__Satisfa__6FE99F9F" Association="ReclaimsAndComplaints2Model.FK__Reclaim__Satisfa__6FE99F9F">
+            <End Role="Satisfaction" EntitySet="Satisfaction" />
+            <End Role="Reclaim" EntitySet="Reclaim" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="Satisfaction">
+          <Key>
+            <PropertyRef Name="IdSatisfaction" />
+          </Key>
+          <Property Name="IdSatisfaction" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Complaint" Relationship="ReclaimsAndComplaints2Model.FK__Complaint__Satis__70DDC3D8" FromRole="Satisfaction" ToRole="Complaint" />
+          <NavigationProperty Name="Reclaim" Relationship="ReclaimsAndComplaints2Model.FK__Reclaim__Satisfa__6FE99F9F" FromRole="Satisfaction" ToRole="Reclaim" />
+        </EntityType>
+        <Association Name="FK__Complaint__Satis__70DDC3D8">
+          <End Type="ReclaimsAndComplaints2Model.Satisfaction" Role="Satisfaction" Multiplicity="0..1" />
+          <End Type="ReclaimsAndComplaints2Model.Complaint" Role="Complaint" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Satisfaction">
+              <PropertyRef Name="IdSatisfaction" />
+            </Principal>
+            <Dependent Role="Complaint">
+              <PropertyRef Name="Satisfaction" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Reclaim__Satisfa__6FE99F9F">
+          <End Type="ReclaimsAndComplaints2Model.Satisfaction" Role="Satisfaction" Multiplicity="0..1" />
+          <End Type="ReclaimsAndComplaints2Model.Reclaim" Role="Reclaim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Satisfaction">
+              <PropertyRef Name="IdSatisfaction" />
+            </Principal>
+            <Dependent Role="Reclaim">
+              <PropertyRef Name="Satisfaction" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -977,6 +1064,7 @@
           <EntitySetMapping Name="Complaint">
             <EntityTypeMapping TypeName="ReclaimsAndComplaints2Model.Complaint">
               <MappingFragment StoreEntitySet="Complaint">
+                <ScalarProperty Name="Satisfaction" ColumnName="Satisfaction" />
                 <ScalarProperty Name="IdComplaint" ColumnName="IdComplaint" />
                 <ScalarProperty Name="IdClient" ColumnName="IdClient" />
                 <ScalarProperty Name="IdProduct" ColumnName="IdProduct" />
@@ -1051,6 +1139,7 @@
           <EntitySetMapping Name="Reclaim">
             <EntityTypeMapping TypeName="ReclaimsAndComplaints2Model.Reclaim">
               <MappingFragment StoreEntitySet="Reclaim">
+                <ScalarProperty Name="Satisfaction" ColumnName="Satisfaction" />
                 <ScalarProperty Name="IdReclaim" ColumnName="IdReclaim" />
                 <ScalarProperty Name="IdClient" ColumnName="IdClient" />
                 <ScalarProperty Name="IdProduct" ColumnName="IdProduct" />
@@ -1125,6 +1214,14 @@
               <MappingFragment StoreEntitySet="UserStatus">
                 <ScalarProperty Name="IdUserStatus" ColumnName="IdUserStatus" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Satisfaction">
+            <EntityTypeMapping TypeName="ReclaimsAndComplaints2Model.Satisfaction">
+              <MappingFragment StoreEntitySet="Satisfaction">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="IdSatisfaction" ColumnName="IdSatisfaction" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

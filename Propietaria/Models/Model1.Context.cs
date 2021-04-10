@@ -40,5 +40,6 @@ namespace Propietaria.Models
         public virtual DbSet<RoleOperation> RoleOperation { get; set; }
         public virtual DbSet<Users> Users { get; set; }
         public virtual DbSet<UserStatus> UserStatus { get; set; }
+        public virtual DbSet<Satisfaction> Satisfaction { get; set; }
     }
 }

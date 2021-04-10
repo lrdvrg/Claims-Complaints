@@ -131,6 +131,7 @@
     <Compile Include="Controllers\ClientsController.cs" />
     <Compile Include="Controllers\ComplaintsController.cs" />
     <Compile Include="Controllers\ComplaintsResponsesController.cs" />
+    <Compile Include="Controllers\ComplaintsSatisfactionController.cs" />
     <Compile Include="Controllers\ComplaintTypesController.cs" />
     <Compile Include="Controllers\DepartmentsController.cs" />
     <Compile Include="Controllers\EmployeesController.cs" />
@@ -140,6 +141,7 @@
     <Compile Include="Controllers\ReclaimsAndComplaintsStatusController.cs" />
     <Compile Include="Controllers\ReclaimsController.cs" />
     <Compile Include="Controllers\ReclaimsResponsesController.cs" />
+    <Compile Include="Controllers\ReclaimsSatisfactionController.cs" />
     <Compile Include="Controllers\ReclaimTypesController.cs" />
     <Compile Include="Controllers\UserStatusController.cs" />
     <Compile Include="Filters\CheckSession.cs" />
@@ -198,6 +200,9 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\RoleOperation.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Satisfaction.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Users.cs">
@@ -324,6 +329,16 @@
     <Content Include="Views\ComplaintsResponses\Details.cshtml" />
     <Content Include="Views\ComplaintsResponses\Edit.cshtml" />
     <Content Include="Views\ComplaintsResponses\Index.cshtml" />
+    <Content Include="Views\ReclaimsSatisfaction\Create.cshtml" />
+    <Content Include="Views\ReclaimsSatisfaction\Delete.cshtml" />
+    <Content Include="Views\ReclaimsSatisfaction\Details.cshtml" />
+    <Content Include="Views\ReclaimsSatisfaction\Edit.cshtml" />
+    <Content Include="Views\ReclaimsSatisfaction\Index.cshtml" />
+    <Content Include="Views\ComplaintsSatisfaction\Create.cshtml" />
+    <Content Include="Views\ComplaintsSatisfaction\Delete.cshtml" />
+    <Content Include="Views\ComplaintsSatisfaction\Details.cshtml" />
+    <Content Include="Views\ComplaintsSatisfaction\Edit.cshtml" />
+    <Content Include="Views\ComplaintsSatisfaction\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

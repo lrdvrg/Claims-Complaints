@@ -4,6 +4,7 @@
     <EntitySetMapping Name="Complaint">
       <EntityTypeMapping TypeName="ReclaimsAndComplaints2Model.Complaint">
         <MappingFragment StoreEntitySet="Complaint">
+          <ScalarProperty Name="Satisfaction" ColumnName="Satisfaction" />
           <ScalarProperty Name="IdComplaint" ColumnName="IdComplaint" />
           <ScalarProperty Name="IdClient" ColumnName="IdClient" />
           <ScalarProperty Name="IdProduct" ColumnName="IdProduct" />
@@ -78,6 +79,7 @@
     <EntitySetMapping Name="Reclaim">
       <EntityTypeMapping TypeName="ReclaimsAndComplaints2Model.Reclaim">
         <MappingFragment StoreEntitySet="Reclaim">
+          <ScalarProperty Name="Satisfaction" ColumnName="Satisfaction" />
           <ScalarProperty Name="IdReclaim" ColumnName="IdReclaim" />
           <ScalarProperty Name="IdClient" ColumnName="IdClient" />
           <ScalarProperty Name="IdProduct" ColumnName="IdProduct" />
@@ -152,6 +154,14 @@
         <MappingFragment StoreEntitySet="UserStatus">
           <ScalarProperty Name="IdUserStatus" ColumnName="IdUserStatus" />
           <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Satisfaction">
+      <EntityTypeMapping TypeName="ReclaimsAndComplaints2Model.Satisfaction">
+        <MappingFragment StoreEntitySet="Satisfaction">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="IdSatisfaction" ColumnName="IdSatisfaction" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

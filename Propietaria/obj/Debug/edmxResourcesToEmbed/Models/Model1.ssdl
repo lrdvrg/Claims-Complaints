@@ -14,6 +14,7 @@
     <Property Name="CreationDate" Type="date" />
     <Property Name="Description" Type="varchar" MaxLength="300" />
     <Property Name="Comment" Type="varchar" MaxLength="300" />
+    <Property Name="Satisfaction" Type="int" />
   </EntityType>
   <EntityType Name="ComplaintType">
     <Key>
@@ -80,6 +81,7 @@
     <Property Name="CreationDate" Type="date" />
     <Property Name="Description" Type="varchar" MaxLength="300" />
     <Property Name="Comment" Type="varchar" MaxLength="300" />
+    <Property Name="Satisfaction" Type="int" />
   </EntityType>
   <EntityType Name="ReclaimsAndComplaintsStatus">
     <Key>
@@ -109,6 +111,13 @@
     <Property Name="IdRoleOperation" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="IdRole" Type="int" />
     <Property Name="IdOperation" Type="int" />
+  </EntityType>
+  <EntityType Name="Satisfaction">
+    <Key>
+      <PropertyRef Name="IdSatisfaction" />
+    </Key>
+    <Property Name="IdSatisfaction" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="30" />
   </EntityType>
   <EntityType Name="Users">
     <Key>
@@ -211,6 +220,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK__Complaint__Satis__70DDC3D8">
+    <End Role="Satisfaction" Type="Self.Satisfaction" Multiplicity="0..1" />
+    <End Role="Complaint" Type="Self.Complaint" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Satisfaction">
+        <PropertyRef Name="IdSatisfaction" />
+      </Principal>
+      <Dependent Role="Complaint">
+        <PropertyRef Name="Satisfaction" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK__Operation__IdMod__3C69FB99">
     <End Role="Module" Type="Self.Module" Multiplicity="0..1" />
     <End Role="Operation" Type="Self.Operation" Multiplicity="*" />
@@ -292,6 +313,18 @@
       </Principal>
       <Dependent Role="Reclaim">
         <PropertyRef Name="IdStatus" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Reclaim__Satisfa__6FE99F9F">
+    <End Role="Satisfaction" Type="Self.Satisfaction" Multiplicity="0..1" />
+    <End Role="Reclaim" Type="Self.Reclaim" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Satisfaction">
+        <PropertyRef Name="IdSatisfaction" />
+      </Principal>
+      <Dependent Role="Reclaim">
+        <PropertyRef Name="Satisfaction" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -381,6 +414,7 @@
     <EntitySet Name="ReclaimType" EntityType="Self.ReclaimType" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="RoleOperation" EntityType="Self.RoleOperation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Satisfaction" EntityType="Self.Satisfaction" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="UserStatus" EntityType="Self.UserStatus" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK__Complaint__IdCli__60A75C0F" Association="Self.FK__Complaint__IdCli__60A75C0F">
@@ -405,6 +439,10 @@
     </AssociationSet>
     <AssociationSet Name="FK__Complaint__IdSta__656C112C" Association="Self.FK__Complaint__IdSta__656C112C">
       <End Role="ReclaimsAndComplaintsStatus" EntitySet="ReclaimsAndComplaintsStatus" />
+      <End Role="Complaint" EntitySet="Complaint" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Complaint__Satis__70DDC3D8" Association="Self.FK__Complaint__Satis__70DDC3D8">
+      <End Role="Satisfaction" EntitySet="Satisfaction" />
       <End Role="Complaint" EntitySet="Complaint" />
     </AssociationSet>
     <AssociationSet Name="FK__Operation__IdMod__3C69FB99" Association="Self.FK__Operation__IdMod__3C69FB99">
@@ -433,6 +471,10 @@
     </AssociationSet>
     <AssociationSet Name="FK__Reclaim__IdStatu__5DCAEF64" Association="Self.FK__Reclaim__IdStatu__5DCAEF64">
       <End Role="ReclaimsAndComplaintsStatus" EntitySet="ReclaimsAndComplaintsStatus" />
+      <End Role="Reclaim" EntitySet="Reclaim" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Reclaim__Satisfa__6FE99F9F" Association="Self.FK__Reclaim__Satisfa__6FE99F9F">
+      <End Role="Satisfaction" EntitySet="Satisfaction" />
       <End Role="Reclaim" EntitySet="Reclaim" />
     </AssociationSet>
     <AssociationSet Name="FK__RoleOpera__IdOpe__4222D4EF" Association="Self.FK__RoleOpera__IdOpe__4222D4EF">
